@@ -11,8 +11,8 @@ def get_creds() :
 
 	creds = dict() # dictionary to hold everything
 	creds['access_token'] = ''# access token for use with all api calls
-	creds['client_id'] = '912141510543996'#'FB-APP-CLIENT-ID' # client id from facebook app IG Graph API Test
-	creds['client_secret'] = 'de4f635f40e446831c0a982a7d96a76e'#'FB-APP-CLIENT-SECRET' # client secret from facebook app
+	creds['client_id'] = 'FB-APP-CLIENT-ID' # client id from facebook app IG Graph API Test
+	creds['client_secret'] = 'FB-APP-CLIENT-SECRET' # client secret from facebook app
 	creds['graph_domain'] = 'https://graph.instagram.com/' # base domain for api calls
 	creds['graph_version'] = 'v19.0' # version of the api we are hitting - latest as of 25/01/24
 	creds['endpoint_base'] = creds['graph_domain'] + creds['graph_version'] + '/' # base endpoint with domain and version
