@@ -1,11 +1,11 @@
-Deterministic Bot Detection and Analysis for Instagram Accounts
+# Deterministic Bot Detection and Analysis for Instagram Accounts
 
 
 This utilises the Instagram Graph API and as such you must have a Meta Developer account.
 You must make a Web App on this account and then generate the access token for your Instagram account - requiring a sign-in. 
 In defines.py replace 'APP-CLIENT-ID' with the client ID and 'APP-CLIENT-SECRET' with the client secret for the Web App made on this account.
 
-Run the main.py program and the bot detection and analysis begins.
+## Run the main.py program and the bot detection and analysis begins.
 
 
 This program determines the likelihood of each of the image posts on the account being AI/sythetically generated.
@@ -14,7 +14,7 @@ It then uses all of this information to give the account a bot likelihood score,
 
 
 
-TERMS & CONDITIONS
+## TERMS & CONDITIONS
 
 By using this Python program to access your Instagram account data, you agree to the following terms and conditions:
 
