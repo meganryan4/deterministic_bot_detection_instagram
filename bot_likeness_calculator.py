@@ -48,7 +48,7 @@ def bot_likeness_scorer(creds, ai_probabilities, images_found_rev):
         score += 0.05
 
     if not has_profile_pic:
-        score += 0.1
+        score += 0.2
     
     if not followed:
         score += 0.1
@@ -69,10 +69,8 @@ def bot_likeness_scorer(creds, ai_probabilities, images_found_rev):
     elif digits_in_username >= 4:
         score += 0.1
 
-    # if 10% or more of the images are probably AI, increase score
-    if ai_prob_ratio > 0.1:
-        score += 0.2
-    elif ai_prob_ratio > 0.2:
+    # if 20% or more of the images are probably AI, increase score
+    if ai_prob_ratio > 0.2:
         score += 0.16
     elif ai_prob_ratio > 0.4:
         score += 0.2
@@ -96,6 +94,11 @@ def bot_likeness_scorer(creds, ai_probabilities, images_found_rev):
         score += 0.8
     elif rev_ratio >= 1:
         score += 0.9
+
+    # if it's an empty account - it's very likely a bot
+    if post_count == 0 and not has_profile_pic and not followed:
+        score += 0.4
+    
 
     # score should never be 100% to allow for possible error
     if score >= 1:
