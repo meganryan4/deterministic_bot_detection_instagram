@@ -5,12 +5,19 @@ from selenium.webdriver.support.ui import WebDriverWait
 import re
 
 def detect_ai_image_selenium(image_urls):
+    """ Uses Selenium to open up a Web browser and perform Ai image detection using Content@Scale
+	
+	Args:
+		image_urls: an array of strings of the URLs for all images posted
+
+	Returns:
+		array: the array of human probability scores
+
+	"""
 
     xpath_text_box = "//input[@id='content-from-blog-url']"
-    #xpath_button = "/html/body/div[3]/div/div[1]/div[2]/form/div[2]/button"
     xpath_button_short = "//form/div[2]/button"
     xpath_human_text = "/html/body/div[3]/div/div[1]/div[1]/div/div[1]/div[1]"
-    #xpath_ai_text = "/html/body/div[3]/div/div[1]/div[1]/div/div[1]/div[2]"
     xpath_current_image = "/html/body/div[3]/div/div[1]/div[3]/img[contains(@src, '{0}')]"
     human_probability = []
 

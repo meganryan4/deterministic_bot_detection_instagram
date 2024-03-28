@@ -2,6 +2,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def generate_graph(probability_scores, images_found, bot_likelihood_score, bot_likeness_chars):
+    """ Generates the result output graphs
+	
+	Args:
+        probability_scores: array of AI prediciton probabilities
+        images_found: array of True/False whether an image was found using reverse image search
+        bot_likelihood_score: the bot likeness score
+        bot_likeness_chars: the string array of the account's characteristics
+
+	"""
     # Calculate the percentage of images found
     num_images = len(images_found)
     percent_found = (sum(images_found) / num_images) * 100
@@ -10,7 +19,7 @@ def generate_graph(probability_scores, images_found, bot_likelihood_score, bot_l
     mean_score = np.mean(probability_scores)
 
     # Create a figure with subplots
-    fig, (ax1, ax2, ax3, ax4) = plt.subplots(1, 4, figsize=(12, 4))#, gridspec_kw={'width_ratios': [4, 1, 2]})
+    fig, (ax1, ax2, ax3, ax4) = plt.subplots(1, 4, figsize=(20, 8))
 
     # Set the width of the bars
     bar_width = 0.4
@@ -22,7 +31,7 @@ def generate_graph(probability_scores, images_found, bot_likelihood_score, bot_l
     bars = ax1.bar(index, prob_scores, width=bar_width, color=colors)
 
     # Add labels and title to the bar plot
-    ax1.set_xlabel('Image')
+    ax1.set_xlabel('Image #')
     ax1.set_ylabel('Probability Score')
     ax1.set_title('AI Likelihood Prediction')
 
@@ -42,7 +51,7 @@ def generate_graph(probability_scores, images_found, bot_likelihood_score, bot_l
         text_color = 'green'
     else:
         text_color = 'red'
-    #ax2.text(0.5, 0.5, f'Most of the images are likely NOT AI', ha='center', va='center', color='blue', fontweight='bold')
+    #ax2.text(0.5, 0.5, f'You have a LOW percentage of images likely to be AI generated.', ha='center', va='center', color='blue', fontweight='bold')
 
     # Display the percentage of images found with adjusted text position
     ax3.text(0.5, 0.5, f'{percent_found:.2f}%\n of account images\nwere found using\nreverse image search', ha='center', va='center', color='blue', fontweight='bold')

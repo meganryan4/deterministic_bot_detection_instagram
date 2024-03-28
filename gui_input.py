@@ -3,6 +3,8 @@ from defines import get_creds
 from request_user_id import get_user_id
 
 def get_new_creds():
+    """ Reads input creds, validates, and saves to dictionary in defines
+	"""
     global creds
 
     inputUser = inputUsername.get(1.0, "end-1c")
@@ -25,6 +27,12 @@ def get_new_creds():
     #return creds
 
 def input_creds_GUI():
+    """ Creates GUI for user to input account details
+    
+	Returns:
+		creds: the account credentials entered
+
+	"""
 
     global frame
     global inputUsername
@@ -49,10 +57,16 @@ def input_creds_GUI():
     # TextBox Creation 
     inputAT = tk.Text(frame,  height = 1,  width = 60) 
     inputAT.grid(column=1, row=1)
+
+    #terms = tk.Label(text="By clicking Continue you agree to the terms and conditions available in the README file.")
+    #terms.grid(column=0, rowspan=2)
+    terms_text = "By clicking Continue you agree to the terms and conditions available in the README file."
+    terms = tk.Label(frame, text=terms_text, wraplength=400)  # Adjust wraplength as needed
+    terms.grid(column=0, row=2, columnspan=2, pady=10)
   
     # button Creation 
     printButton = tk.Button(frame, text = "Continue",   command = get_new_creds)
-    printButton.grid(column=0, row=2)
+    printButton.grid(column=0, row=3, columnspan=2)
 
     # loop frame
     frame.mainloop()

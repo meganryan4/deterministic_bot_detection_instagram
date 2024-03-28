@@ -1,6 +1,20 @@
 import requests
 
 def get_user_id(access_token, username):
+    """ Get user id 
+	
+	API Endpoint:
+		'https://graph.instagram.com/v19.0/me?fields=id,username&access_token={access_token}'
+
+    Args:
+        access_token: the input user access token
+        username: the input username
+
+	Returns:
+		object: user id
+
+	"""
+
     # Get user ID from username
     url = f'https://graph.instagram.com/v19.0/me?fields=id,username&access_token={access_token}'
     response = requests.get(url)
